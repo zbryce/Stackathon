@@ -3,10 +3,16 @@ const chatMessages = document.querySelector('.chat-messages')
 //getting url, options -> ignore unecessary chars
 //cdn qs is a querystring parser
 //value attribute determine returned values
+
+
+//set up custom namespace: const ns = io.of('/mynamespace') backend
+// create a new socket 
+// const socket = io('/my-namespace');
+
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 });
-console.log(username, room)
+console.log('ur ', username, room)
 //message/text from the server
 
 socket.emit('joinRoom', {username, room})
@@ -21,6 +27,7 @@ socket.on('solo', message => {
     chatMessages.scrollTop = chatMessages.scrollHeight
 })
 socket.on('new', message => {
+    console.log('new message ', message)
     outputNew(message)
     chatMessages.scrollTop = chatMessages.scrollHeight
 })

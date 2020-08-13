@@ -15,10 +15,15 @@ app.use(express.static(path.join(__dirname, 'public')))
 //runs when client connects
 io.on('connection', socket => {
     socket.on('joinRoom', (username, room) => {
+
+        const user = userJoin(socket.id, username, room)
+        //join room functionality
+        socket.join(user.username.room)
         //.emit emits just to the single user who connected
         socket.emit('new', formatMessage(bot, 'Welcome to the Network!'))
+   
         //broadcasts to everyone but the user
-        socket.broadcast.emit('chatMessage', formatMessage(bot, 'a user joined the room'))
+        socket.broadcast.to(user.username.room).emit('chatMessage', formatMessage(bot, `${username} joined the room`))
     })
      
 
