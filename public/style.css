@@ -1,6 +1,6 @@
 
 
-Skip to content
+/* Skip to content
 Search or jump to…
 
 Pull requests
@@ -8,7 +8,7 @@ Issues
 Marketplace
 Explore
  
-@zbryce 
+
 Learn Git and GitHub without any code!
 Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
 
@@ -36,7 +36,7 @@ Latest commit 2902a9c on Mar 23
  1 contributor
 189 lines (157 sloc)  2.66 KB
   
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap'); */
 
 :root {
 	--dark-color-a: #667aff;
@@ -90,7 +90,7 @@ a {
 }
 
 .chat-header {
-	background: var(--dark-color-a);
+	background: darkolivegreen;
 	color: #fff;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -106,7 +106,8 @@ a {
 }
 
 .chat-sidebar {
-	background: var(--dark-color-b);
+    /* background: var(--dark-color-b); */
+    background: green;
 	color: #fff;
 	padding: 20px 20px 60px;
 	overflow-y: scroll;
@@ -171,12 +172,18 @@ a {
 	height: 40px;
 	flex: 1;
 }
-
+.general{
+    background-color: lightblue;
+    width: 300px;
+    text-align: right;
+}
 /* Join Page */
 .join-container {
 	max-width: 500px;
 	margin: 80px auto;
-	color: #fff;
+    color: #fff;
+    align-content: center;
+    background-color: lightblue;
 }
 
 .join-header {
@@ -224,13 +231,28 @@ a {
 	width: 100%;
 }
 .message {
-    background-color: lightseagreen;
-    width: 600px;
+    justify-self: right;    
+    /* background-color: lightseagreen; */
+    width: 400px;
+    text-align: right;
+    height: 75px;
+}
+#msg{
+    height:130px;
+    width: 500px;
+    border-style: solid;
+    border-width: medium;
+    border-color: peru;
+}
+.new {
+    background-color: lightslategrey;
+    width: 400px;
     text-align: right;
 }
 .soloMessage {
     background-color: lightgreen;
-    width: 600px
+    width: 300px;
+    text-align: left;
 }
 @media (max-width: 700px) {
 	.chat-main {
