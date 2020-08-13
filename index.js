@@ -8,19 +8,26 @@ const server = http.createServer(app)
 const io = socketio(server)
 
 app.use(express.static(path.join(__dirname, 'public')))
+
 //runs when client connects
 io.on('connection', socket => {
     //.emit emits just to the single user who connected
     socket.emit('message', 'Through hyperspace')
     //broadcasts to everyone but the user
-    socket.broadcast.emit('message', 'a user has joined the network')
+    socket.broadcast.emit('chatMessage', 'a user has joined the network')
+     
     //send to everyone
-    
+
     // io.emit()
     
     //when user disconnects 
     socket.on('disconnect', () => {
         io.emit('message', 'user has left the station')
+    })
+    //listen for click emission from client
+    socket.on('chatMessage', (message) => {
+        socket.emit('solo', message)
+        socket.broadcast.emit('chatMessage', message)
     })
 })
 
